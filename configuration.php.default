@@ -1,0 +1,11 @@
+<?php
+	$configuration = array(
+		"domain" => "avolitty.com",
+		"hashSalt" => "avolitty",
+		"merchantId" => "",
+		"path" => "/var/www/avolitty.com/",
+		"statistics" => array(
+			"label" => "value"
+		)
+	);
+?>
