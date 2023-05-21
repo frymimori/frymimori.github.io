@@ -1,6 +1,6 @@
 <?php
 	$parameters = array(
-		"metaDescription" => "Evaluate and purchase a subscription for essential algorithms, modules and packages with freemium open-source code in 3 different programming languages.",
+		"metaDescription" => "Evaluate and purchase a subscription for essential algorithms, data structures, libraries, modules, packages and systems with freemium open-source code in 3 different programming languages.",
 		"title" => "Avolitty - Freemium Open-Source Code"
 	);
 	require_once("../configuration.php");

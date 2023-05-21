@@ -11,7 +11,7 @@
 	require_once("../../includes/header.php");
 	$data = array(
 		"redirect" => "https://www.paypal.com/cgi-bin/webscr?" . http_build_query(array(
-			"a3" => 10,
+			"a3" => 1,
 			"business" => $configuration["merchantId"],
 			"cancel_return" => "https://" . $configuration["domain"] . "/pricing/",
 			"cmd" => "_xclick-subscriptions",

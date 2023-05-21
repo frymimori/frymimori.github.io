@@ -24,7 +24,7 @@
 					<label>Paid Tier</label>
 					<div class="output">
 						<span>
-							<span><span class="value">$10 monthly subscription</span> for business and personal usage.</span>
+							<span><span class="value">$1 monthly subscription</span> for business and personal usage.</span>
 						</span>
 					</div>
 					<div class="form">
