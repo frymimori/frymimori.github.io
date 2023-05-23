@@ -21,7 +21,7 @@
 					<p>They're the missing fundamental components in all programming languages with unprecedented efficiency, performance, robustness, security and simplicity.</p>
 				</div>
 				<div>
-					<p>Gradual implementation of Avolitty rapidly advances technology in all industries without rebuilding widely-adopted software.</p>
+					<p>Evaluate each component with full transparency and upgrade widely-adopted software platforms piece-by-piece to make an impact for people in all industries.</p>
 				</div>
 			</div>
 		</section>
