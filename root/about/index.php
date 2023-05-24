@@ -23,6 +23,9 @@
 				<div>
 					<p>Evaluate each component with full transparency and upgrade widely-adopted software platforms piece-by-piece to make an impact for people in all industries.</p>
 				</div>
+				<div>
+					<p>Avolitty's primary focus is building a network orchestration system for all C-based operating systems using only Avolitty components to accelerate mobile internet traffic and eventually protect human brains from unauthorized internet access.</p>
+				</div>
 			</div>
 		</section>
 	</main>
