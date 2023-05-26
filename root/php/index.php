@@ -15,7 +15,7 @@
 			<section>
 				<div class="container">
 					<a class="button container php" href="https://github.com/avolitty/php-avolitty-pathfinder" target="_blank">
-						<span class="label">v1.0.2</span>
+						<span class="label">v1.0.3</span>
 						<span class="heading">Pathfinder</span>
 						<span class="description">Create shortest path traversals in grid graphs.</span>
 					</a>

@@ -153,7 +153,6 @@
 				footer img {
 					float: left;
 					height: 22px;
-					opacity: 0.2;
 				}
 				footer section {
 					margin-bottom: 63px;
@@ -181,9 +180,6 @@
 							display: block;
 							float: left;
 						}
-							footer ul li a img:hover {
-								opacity: 0.25;
-							}
 				footer .logo img {
 					margin-right: 0;
 				}
