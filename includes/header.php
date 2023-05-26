@@ -3,38 +3,16 @@
 		"cookie_lifetime" => 100000000
 	));
 
-	if (empty($_SESSION["user"]) == false) {
-		if (file_exists($configuration["path"] . "database/visits/attackers/" . $_SESSION["user"]["idHash"])) {
-			echo "Limit of 10 visits per minute exceeded, try again in 1 minute.";
-			exit;
-		}
-
-		$visitsDirectoryPath = $configuration["path"] . "database/visits/users/" . $_SESSION["user"]["idHash"] . "/";
-	} else {
-		if (file_exists($configuration["path"] . "database/visits/attackers/" . $_SERVER["REMOTE_ADDR"])) {
-			echo "Limit of 100 visits per minute exceeded, try again in 1 minute.";
-			exit;
-		}
-
-		$visitsDirectoryPath = $configuration["path"] . "database/visits/visitors/" . $_SERVER["REMOTE_ADDR"] . "/";
+	if (file_exists($configuration["path"] . "database/visits/attackers/" . $_SERVER["REMOTE_ADDR"])) {
+		echo "Limit of 100 visits per minute exceeded, try again in 1 minute.";
+		exit;
 	}
+
+	$visitsDirectoryPath = $configuration["path"] . "database/visits/visitors/" . $_SERVER["REMOTE_ADDR"] . "/";
 
 	if (is_dir($visitsDirectoryPath) == false) {
 		mkdir($visitsDirectoryPath);
 		chmod($visitsDirectoryPath, 0777);
-	}
-
-	if (file_exists($configuration["path"] . "database/users/" . $_SESSION["user"]["idHash"] . "/update")) {
-		$encodedUserData = file_get_contents($configuration["path"] . "database/users/" . $_SESSION["user"]["idHash"] . "/data.json");
-
-		if ($encodedUserData) {
-			$decodedUserData = json_decode($encodedUserData, true);
-
-			if ($decodedUserData) {
-				$_SESSION["user"] = $decodedUserData;
-				unlink($configuration["path"] . "database/users/" . $_SESSION["user"]["idHash"] . "/update");
-			}
-		}
 	}
 
 	touch($visitsDirectoryPath . time() . rand(0, 10000000));
@@ -47,9 +25,6 @@
 	<head>
 		<title><?php echo $parameters["title"]; ?></title>
 		<link href="/logo.png" rel="icon" type="image/png">
-<?php if (empty($parameters["metaDescription"]) == false): ?>
-		<meta content="<?php echo $parameters[metaDescription]; ?>" name="description">
-<?php endif; ?>
 		<meta content="initial-scale=1, width=device-width" name="viewport">
 		<meta content="noindex" name="robots">
 		<meta charset="utf-8">
@@ -253,6 +228,7 @@
 			}
 			main {
 				float: left;
+				margin-top: 110px;
 				width: 100%;
 			}
 				main p {
@@ -306,45 +282,48 @@
 			.align-right {
 				float: right;
 			}
-			.breadcrumbs ol {
-				float: left;
-				list-style: none;
-				margin: 0 0 -5px;
-				padding: 0;
-				width: 100%;
+			.breadcrumbs {
+				margin-top: 110px;
 			}
-				.breadcrumbs ol li {
+				.breadcrumbs ol {
 					float: left;
-					font-weight: normal;
-					margin: 0 10px 15px 0;
+					list-style: none;
+					margin: 0 0 -5px;
 					padding: 0;
+					width: 100%;
 				}
-					.breadcrumbs ol li:last-child {
-						background: #0d0d0d;
-						color: #808080;
-					}
-					footer a span,
-					footer .statistics span span span,
-					.breadcrumbs ol li:last-child,
-					.breadcrumbs ol li a {
-						border-radius: 3px;
-						font-size: 11px;
-						letter-spacing: 0.3px;
-						line-height: 20px;
-						margin-right: 0;
-						padding: 3px 8px 2px;
-					}
-					footer a span,
-					.breadcrumbs ol li a {
-						background: #202020;
-						color: #bcbcbc;
+					.breadcrumbs ol li {
 						float: left;
 						font-weight: normal;
+						margin: 0 10px 15px 0;
+						padding: 0;
 					}
-						footer a:hover span,
-						.breadcrumbs ol li a:hover {
-							background: #262626;
+						.breadcrumbs ol li:last-child {
+							background: #0d0d0d;
+							color: #808080;
 						}
+						footer a span,
+						footer .statistics span span span,
+						.breadcrumbs ol li:last-child,
+						.breadcrumbs ol li a {
+							border-radius: 3px;
+							font-size: 11px;
+							letter-spacing: 0.3px;
+							line-height: 20px;
+							margin-right: 0;
+							padding: 3px 8px 2px;
+						}
+						footer a span,
+						.breadcrumbs ol li a {
+							background: #202020;
+							color: #bcbcbc;
+							float: left;
+							font-weight: normal;
+						}
+							footer a:hover span,
+							.breadcrumbs ol li a:hover {
+								background: #262626;
+							}
 			.button {
 				background: #111;
 				border: 2px solid #191919;
@@ -583,27 +562,3 @@
 		</style>
 	</head>
 	<body>
-		<header>
-			<section>
-				<div class="container">
-					<a class="align-left logo" href="/"><img alt="Avolitty Logo" class="align-left" src="/logo.jpg"> Avolitty</a>
-					<nav class="align-right">
-						<ul>
-							<?php if (empty($_SESSION["user"])): ?>
-							<?php if ($_SERVER["REQUEST_URI"] != "/create-an-account/"): ?>
-							<li><a href="/create-an-account/">Create an Account</a></li>
-							<?php endif; ?>
-							<?php if ($_SERVER["REQUEST_URI"] != "/sign-in/"): ?>
-							<li><a href="/sign-in/">Sign In</a></li>
-							<?php endif; ?>
-							<?php else: ?>
-							<?php if ($_SERVER["REQUEST_URI"] != "/dashboard/"): ?>
-							<li><a href="/dashboard/">Dashboard</a></li>
-							<?php endif; ?>
-							<li><a href="/sign-out/">Sign Out</a></li>
-							<?php endif; ?>
-						</ul>
-					</nav>
-				</div>
-			</section>
-		</header>

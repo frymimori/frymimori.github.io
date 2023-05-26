@@ -2,11 +2,10 @@
 	$parameters = array(
 		"breadcrumbs" => array(
 			array(
-				"title" => "PHP Algorithms",
+				"title" => "PHP",
 			)
 		),
-		"metaDescription" => "Evaluate and purchase a subscription for unique PHP algorithms, modules and Composer packages with freemium open-source code.",
-		"title" => "PHP Algorithms - Avolitty"
+		"title" => "PHP - Avolitty"
 	);
 	require_once("../../configuration.php");
 	require_once("../../includes/header.php");

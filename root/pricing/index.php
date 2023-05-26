@@ -15,21 +15,7 @@
 		<section>
 			<div class="container interface">
 				<div>
-					<label>Free Tier</label>
-					<div class="output">
-						<span>
-							<span><span class="value">$0</span> for evaluation and testing before subscribing to Paid Tier.</span>
-						</span>
-					</div>
-					<label>Paid Tier</label>
-					<div class="output">
-						<span>
-							<span><span class="value">$1 monthly subscription</span> for business and personal usage.</span>
-						</span>
-					</div>
-					<div class="form">
-						<a class="button" href="/subscribe/">Subscribe</a>
-					</div>
+					<span>Subscription payments are disabled while changes are made to license tiers.</span>
 				</div>
 			</div>
 		</section>
