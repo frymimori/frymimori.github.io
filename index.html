@@ -1,71 +1,10 @@
-<?php
-	session_start(array(
-		"cookie_lifetime" => 100000000
-	));
-
-	if (file_exists($configuration["path"] . "database/visits/attackers/" . $_SERVER["REMOTE_ADDR"])) {
-		echo "Limit of 100 visits per minute exceeded, try again in 1 minute.";
-		exit;
-	}
-
-	$visitsDirectoryPath = $configuration["path"] . "database/visits/visitors/" . $_SERVER["REMOTE_ADDR"] . "/";
-
-	if (is_dir($visitsDirectoryPath) == false) {
-		mkdir($visitsDirectoryPath);
-		chmod($visitsDirectoryPath, 0777);
-	}
-
-	touch($visitsDirectoryPath . time() . rand(0, 10000000));
-	$data = array(
-		"messages" => array()
-	);
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title><?php echo $parameters["title"]; ?></title>
+		<title>Fry Mimori - Open-Source Development</title>
 		<link href="/logo.png" rel="icon" type="image/png">
 		<meta content="initial-scale=1, width=device-width" name="viewport">
-		<meta content="noindex" name="robots">
 		<meta charset="utf-8">
-<?php if (empty($parameters["breadcrumbs"]) == false): ?>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "BreadcrumbList",
-				"itemListElement": [
-					{
-						"@type": "ListItem",
-						"name": "Home",
-						"position": 1,
-						"item": "https://<?php echo $configuration["domain"]; ?>/"
-					},
-<?php
-	$breadcrumbs = $parameters["breadcrumbs"];
-	$breadcrumbsCount = count($breadcrumbs) - 1;
-	$breadcrumbsIndex = 0;
-
-	while ($breadcrumbsCount != $breadcrumbsIndex):
-?>
-					{
-						"@type": "ListItem",
-						"name": "<?php echo $breadcrumbs[$breadcrumbsIndex]["title"]; ?>",
-						"position": <?php echo $breadcrumbsIndex + 2; ?>,
-						"item": "https://<?php echo $configuration["domain"] . $breadcrumbs[$breadcrumbsIndex]["url"]; ?>"
-					},
-<?php
-	$breadcrumbsIndex++;
-	endwhile;
-?>
-					{
-						"@type": "ListItem",
-						"position": <?php echo $breadcrumbsIndex + 2; ?>,
-						"name": "<?php echo $breadcrumbs[$breadcrumbsIndex]["title"]; ?>"
-					}
-				]
-			}
-		</script>
-<?php endif; ?>
 		<style type="text/css">
 			a {
 				color: #ffffff;
@@ -307,3 +246,41 @@
 		</style>
 	</head>
 	<body>
+		<main>
+			<section>
+				<div class="container">
+					<a class="button c container" href="/c/">
+						<span class="label">4 Products</span>
+						<span class="heading">C</span>
+						<span class="description">Browse open-source C code.</span>
+					</a>
+					<a class="button container javascript" href="/javascript/">
+						<span class="label">4 Products</span>
+						<span class="heading">JavaScript</span>
+						<span class="description">Browse open-source JavaScript code.</span>
+					</a>
+					<a class="button container php" href="/php/">
+						<span class="label">1 Product</span>
+						<span class="heading">PHP</span>
+						<span class="description">Browse open-source PHP code.</span>
+					</a>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<section>
+				<div class="container">
+					<p>&copy; 2023 Fry Mimori</p>
+					<nav class="align-right">
+						<ul>
+							<li><a href="https://discord.gg/YH7apK7DBD" rel="external" target="_blank"><img alt="Discord" src="/discord.svg"></a></li>
+							<li><a href="https://github.com/frymimori" rel="external" target="_blank"><img alt="GitHub" src="/github.svg"></a></li>
+							<li><a href="https://www.linkedin.com/in/frymimori/" rel="external" target="_blank"><img alt="GitHub" src="/linkedin.svg"></a></li>
+							<li><a href="https://twitter.com/frymimori" rel="external" target="_blank"><img alt="Twitter" src="/twitter.svg"></a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</footer>
+	</body>
+</html>

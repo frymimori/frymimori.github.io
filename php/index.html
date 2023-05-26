@@ -1,34 +1,10 @@
-<?php
-	session_start(array(
-		"cookie_lifetime" => 100000000
-	));
-
-	if (file_exists($configuration["path"] . "database/visits/attackers/" . $_SERVER["REMOTE_ADDR"])) {
-		echo "Limit of 100 visits per minute exceeded, try again in 1 minute.";
-		exit;
-	}
-
-	$visitsDirectoryPath = $configuration["path"] . "database/visits/visitors/" . $_SERVER["REMOTE_ADDR"] . "/";
-
-	if (is_dir($visitsDirectoryPath) == false) {
-		mkdir($visitsDirectoryPath);
-		chmod($visitsDirectoryPath, 0777);
-	}
-
-	touch($visitsDirectoryPath . time() . rand(0, 10000000));
-	$data = array(
-		"messages" => array()
-	);
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title><?php echo $parameters["title"]; ?></title>
+		<title>Open-Source PHP Code - Fry Mimori</title>
 		<link href="/logo.png" rel="icon" type="image/png">
 		<meta content="initial-scale=1, width=device-width" name="viewport">
-		<meta content="noindex" name="robots">
 		<meta charset="utf-8">
-<?php if (empty($parameters["breadcrumbs"]) == false): ?>
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -36,36 +12,18 @@
 				"itemListElement": [
 					{
 						"@type": "ListItem",
+						"item": "https://frymimori.github.io/",
 						"name": "Home",
-						"position": 1,
-						"item": "https://<?php echo $configuration["domain"]; ?>/"
+						"position": 1
 					},
-<?php
-	$breadcrumbs = $parameters["breadcrumbs"];
-	$breadcrumbsCount = count($breadcrumbs) - 1;
-	$breadcrumbsIndex = 0;
-
-	while ($breadcrumbsCount != $breadcrumbsIndex):
-?>
 					{
 						"@type": "ListItem",
-						"name": "<?php echo $breadcrumbs[$breadcrumbsIndex]["title"]; ?>",
-						"position": <?php echo $breadcrumbsIndex + 2; ?>,
-						"item": "https://<?php echo $configuration["domain"] . $breadcrumbs[$breadcrumbsIndex]["url"]; ?>"
-					},
-<?php
-	$breadcrumbsIndex++;
-	endwhile;
-?>
-					{
-						"@type": "ListItem",
-						"position": <?php echo $breadcrumbsIndex + 2; ?>,
-						"name": "<?php echo $breadcrumbs[$breadcrumbsIndex]["title"]; ?>"
+						"name": "Open-Source PHP Code",
+						"position": 2
 					}
 				]
 			}
 		</script>
-<?php endif; ?>
 		<style type="text/css">
 			a {
 				color: #ffffff;
@@ -307,3 +265,39 @@
 		</style>
 	</head>
 	<body>
+		<main>
+					<section>
+			<div class="breadcrumbs container">
+				<ol>
+					<li><a href="/">Home</a></li>
+					<li>Open-Source PHP Code</li>
+				</ol>
+			</div>
+		</section>
+			<section>
+				<div class="container">
+					<a class="button container php" href="https://github.com/avolitty/php-avolitty-pathfinder" target="_blank">
+						<span class="label">v1.0.0</span>
+						<span class="heading">Pathfinder</span>
+						<span class="description">Create shortest path traversals in grid graphs.</span>
+					</a>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<section>
+				<div class="container">
+					<p>&copy; 2023 Fry Mimori</p>
+					<nav class="align-right">
+						<ul>
+							<li><a href="https://discord.gg/YH7apK7DBD" rel="external" target="_blank"><img alt="Discord" src="/discord.svg"></a></li>
+							<li><a href="https://github.com/frymimori" rel="external" target="_blank"><img alt="GitHub" src="/github.svg"></a></li>
+							<li><a href="https://www.linkedin.com/in/frymimori/" rel="external" target="_blank"><img alt="GitHub" src="/linkedin.svg"></a></li>
+							<li><a href="https://twitter.com/frymimori" rel="external" target="_blank"><img alt="Twitter" src="/twitter.svg"></a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</footer>
+	</body>
+</html>

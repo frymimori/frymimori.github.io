@@ -2,10 +2,10 @@
 	$parameters = array(
 		"breadcrumbs" => array(
 			array(
-				"title" => "C",
+				"title" => "Open-Source C Code",
 			)
 		),
-		"title" => "C - Avolitty"
+		"title" => "Open-Source C Code - Fry Mimori"
 	);
 	require_once("../../configuration.php");
 	require_once("../../includes/header.php");
@@ -20,22 +20,22 @@
 						<span class="description">Create secure multidimensional hash tables.</span>
 					</a>
 					<a class="button c container" href="https://github.com/avolitty/c-avolitty-hasher" target="_blank">
-						<span class="label">v1.2.5</span>
+						<span class="label">v1.0.0</span>
 						<span class="heading">Hasher</span>
 						<span class="description">Create secure and variable-length checksums.</span>
 					</a>
 					<a class="button c container" href="https://github.com/avolitty/c-avolitty-pathfinder" target="_blank">
-						<span class="label">v1.2.6</span>
+						<span class="label">v1.0.0</span>
 						<span class="heading">Pathfinder</span>
 						<span class="description">Create shortest path traversals in grid graphs.</span>
 					</a>
 					<a class="button c container" href="https://github.com/avolitty/c-avolitty-randomizer" target="_blank">
-						<span class="label">v1.2.6</span>
+						<span class="label">v1.0.0</span>
 						<span class="heading">Randomizer</span>
-						<span class="description">Create random integers from timestamps and standard I/O.</span>
+						<span class="description">Create random integers with additional entropy.</span>
 					</a>
 					<a class="button c container" href="https://github.com/avolitty/c-avolitty-reader" target="_blank">
-						<span class="label">v1.3.2</span>
+						<span class="label">v1.0.0</span>
 						<span class="heading">Reader</span>
 						<span class="description">Create byte arrays from file streams.</span>
 					</a>
